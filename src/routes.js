@@ -9,6 +9,9 @@ const getCarId = require('./controllers/cars/getCar')
 const registerSeller = require('./controllers/sellers/registerSeller')
 const getAllSellers = require('./controllers/sellers/getAllSellers')
 const getSellerId = require('./controllers/sellers/getSellerId')
+const registerSale = require('./controllers/sales/registerSale')
+const getAllSales = require('./controllers/sales/getAllSales')
+const getSaleId = require('./controllers/sales/getSaleId')
 const routes = express()
 
 routes.post('/usuario', registerUser);
@@ -25,5 +28,9 @@ routes.get('/carros/:id', getCarId);
 routes.post('/vendedores', registerSeller);
 routes.get('/vendedores', getAllSellers);
 routes.get('/vendedores/:id', getSellerId);
+
+routes.post('/vendas', registerSale);
+routes.get('/vendas', getAllSales);
+routes.get('/vendas/:id', getSaleId);
 
 module.exports = routes
