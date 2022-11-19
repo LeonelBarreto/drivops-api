@@ -24,9 +24,7 @@ drop table if exists vendedores;
 
 create table vendedores(
     id serial primary key,
-    usuario_id integer not null,
-    nome varchar(200) not null,
-    sexo text default "masculino" not null
+    nome varchar(200) not null
 )
 
 drop table if exists vendas;
