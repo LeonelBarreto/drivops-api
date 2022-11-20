@@ -31,10 +31,19 @@ drop table if exists vendas;
 
 create table vendas(
     id serial primary key,
-    modelo_id text not null,
-    vendedor_id text not null,
+    modelo_id integer not null,
+    vendedor_id integer not null,
     data date not null,
-    valor text not null,
+    valor integer not null,
     foreign key (modelo_id) references carros(id),
     foreign key (vendedor_id) references vendedores(id)
 )
+
+
+
+
+
+
+
+
+
