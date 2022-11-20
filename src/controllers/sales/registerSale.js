@@ -19,7 +19,7 @@ const registerSale = async (req, res) => {
         const sale = await knex('vendas').insert({
             modelo_id: searchCar.id,
             vendedor_id: searchSeller.id,
-            data: new Date(),
+            data,
             valor
         }).returning('*');
         
