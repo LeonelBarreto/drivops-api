@@ -12,7 +12,10 @@ const getSellerId = require('./controllers/sellers/getSellerId')
 const registerSale = require('./controllers/sales/registerSale')
 const getAllSales = require('./controllers/sales/getAllSales')
 const getSaleId = require('./controllers/sales/getSaleId')
-const allGraphicsDashboard = require('./controllers/dashboard/gaphics')
+const rankingSellers = require('./controllers/dashboard/topSellers')
+const avgSalesMonth = require('./controllers/dashboard/avgSalesMonth')
+const salesByMonth = require('./controllers/dashboard/salesByMonth')
+
 const routes = express()
 
 routes.post('/usuario', registerUser);
@@ -34,6 +37,8 @@ routes.post('/vendas', registerSale);
 routes.get('/vendas', getAllSales);
 routes.get('/vendas/:id', getSaleId);
 
-routes.get('/dashboard', allGraphicsDashboard);
+routes.get('/dashboard/topSellers', rankingSellers);
+routes.get('/dashboard/avgByMonth', avgSalesMonth);
+routes.get('/dashboard/salesByMonth', salesByMonth);
 
 module.exports = routes
