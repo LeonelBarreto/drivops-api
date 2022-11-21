@@ -6,15 +6,13 @@ const allGraphicsDashboard = async (req, res) => {
 
         const avgSalesMonth = averageSalesByMonth.rows
 
-        const topSellers = await knex.raw(`SELECT SUM(valor), vd.nome FROM vendas v INNER JOIN vendedores vd ON vd.id = v.vendedor_id GROUP BY vd.nome`);
+        const topSellers = await knex.raw(`SELECT SUM(valor), vd.nome FROM vendas v INNER JOIN vendedores vd ON vd.id = v.vendedor_id GROUP BY vd.nome ORDER BY SUM(valor) DESC LIMIT 5`);
 
         const rankSellers = topSellers.rows
-
 
         const allSalesByMonth = await knex.raw(`SELECT SUM(valor), EXTRACT(MONTH FROM data) as month, EXTRACT(YEAR FROM data) as year FROM vendas GROUP BY EXTRACT(MONTH FROM data), EXTRACT (YEAR FROM data)`);
 
         const salesMonth = allSalesByMonth.rows
-
 
         const allGrapichs = {
             avgSalesMonth,
