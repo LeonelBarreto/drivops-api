@@ -2,7 +2,7 @@ const knex = require('../../database/connection');
 
 const avgSalesMonth = async (req, res) => {
     try {
-        const averagedSalesByMonth = await knex.raw(`SELECT AVG(valor), EXTRACT(MONTH FROM data) as month, EXTRACT(YEAR FROM data) as year FROM vendas GROUP BY EXTRACT(MONTH FROM data), EXTRACT (YEAR FROM data)`);
+        const averagedSalesByMonth = await knex.raw(`SELECT AVG(valor), EXTRACT(MONTH FROM data) as month, EXTRACT(YEAR FROM data) as year FROM vendas GROUP BY EXTRACT(MONTH FROM data), EXTRACT (YEAR FROM data) ORDER BY month ASC`);
 
         const averageSalesMonth = averagedSalesByMonth.rows
 
